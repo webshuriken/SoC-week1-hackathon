@@ -3,7 +3,7 @@ let wins = 0;
 let loss = 0;
 let draws = 0;
 let playerMove;
-let computerMove
+let computerMove;
 
 let keepPlaying = true;
 
@@ -37,7 +37,7 @@ function checkWinner(player1, player2) {
     }else{
         if ( (playerMove === "rock" && computerMove === "paper") || (playerMove === "rock" && computerMove === "spock") ) {
             moveResult = -1;
-            loss++;
+            loss++; 
         } else {
             if ( (playerMove === "scissors" && computerMove === "rock") || (playerMove === "scissors" && computerMove === "spock") ) {
                 moveResult = -1;
@@ -70,20 +70,71 @@ function checkWinner(player1, player2) {
 function randomMove() {
     let moves = ["rock", "paper", "scissors", "lizzard", "spock"]
     let random = Math.floor(Math.random() * 4);
-    return moves[4];
+    return moves[random];
 }
+
+// computer always wins
+function alwaysWins() {
+    switch(playerMove) {
+        case "rock":
+            computerMove = "paper";
+            break;
+
+        case "paper":
+            computerMove = "scissors";
+            break;
+
+        case "scissors":
+            computerMove = "rock";
+            break;
+
+        case "lizzard":
+            computerMove = "scissors";
+            break;
+
+        case "spock":
+            computerMove = "lizzard";
+            break;
+    }
+}
+
+function alwaysLose() {
+    switch(playerMove) {
+        case "rock":
+            computerMove = "scissors";
+            break;
+
+        case "paper":
+            computerMove = "spock";
+            break;
+
+        case "scissors":
+            computerMove = "lizzard";
+            break;
+
+        case "lizzard":
+            computerMove = "spock";
+            break;
+
+        case "spock":
+            computerMove = "rock";
+            break;
+    }
+}
+
 
 while(keepPlaying) {
 
     // Moves
     playerMove = prompt("Type rock, paper, scissors, lizzard, spock");
-    computerMove = randomMove();
+    // computerMove = randomMove();
+    alwaysLose();
 
     // check for winner
     let result = checkWinner(playerMove, computerMove);
     gamesPlayed++;
     
-    // resutl box
+    // result box
     alert(`
     ${username} move: ${playerMove}
     Computer move: ${computerMove}
