@@ -5,14 +5,23 @@ let draws = 0;
 
 let keepPlaying = true;
 
+let checkUsername = true;
+
 let username = prompt("Enter your username(max 10 characters)");
 
-if (username === null) {
-    username = "player";
-} else {
-    username = username.substring(0, 10);
+while (checkUsername) {
+    
+    if (username === null) {
+        username = "player";
+    } else {
+        username = username.charAt(0).toUpperCase() + username.slice(1).substring(0, 9);
+    }
+    if (username.match(/^[a-zA-Z]/)) {
+        checkUsername = false;
+    } else {
+        username = prompt("Enter a valid username(not starting with numbers/symbols)");
+    }
 }
-
 
 while(keepPlaying) {
 
