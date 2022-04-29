@@ -1,3 +1,8 @@
+let gamesPlayed = 0;
+let wins = 0;
+let loss = 0;
+let draws = 0;
+
 let keepPlaying = true;
 
 while(keepPlaying) {
@@ -17,18 +22,23 @@ while(keepPlaying) {
         let moveResult;
         // check the moves
         if (playerMove === computerMove) {
+            draws++;
             return 0;
         }else{
             if (playerMove === "rock" && computerMove === "paper") {
                 moveResult = -1;
+                loss++;
             } else {
                 if (playerMove === "scissors" && computerMove === "rock") {
                     moveResult = -1;
+                    loss++
                 } else {
                     if (playerMove === "paper" && computerMove === "scissors") {
                         moveResult = -1;
+                        loss++;
                     } else {
                         moveResult = 1;
+                        wins++;
                     }
                 }
             }
@@ -37,8 +47,16 @@ while(keepPlaying) {
     }
 
     let result = checkWinner(playerMove, computerMove);
-
-    alert(result);
+    gamesPlayed++;
+    
+    alert(`
+    Player move: ${playerMove}
+    Computer move: ${computerMove}
+    -------------------------------
+    Games played: ${gamesPlayed}
+    Wins: ${wins}
+    Losses: ${loss}
+    Draws: ${draws}`);
 
     keepPlaying = confirm("Do you want to keep playing?");
 }
