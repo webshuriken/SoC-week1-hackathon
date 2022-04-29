@@ -1,6 +1,7 @@
 // Moves
-let playerMove = "scissors";
+let playerMove = prompt("Type rock, paper, scissors");
 let computerMove = "paper";
+
 
 
 // player2 is the computer
@@ -29,4 +30,6 @@ function checkWinner(player1, player2) {
 
 let result = checkWinner(playerMove, computerMove);
 
-console.log(result);
+alert(result);
+
+
