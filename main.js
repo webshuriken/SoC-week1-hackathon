@@ -43,15 +43,15 @@ function checkWinner(player1, player2) {
                 moveResult = -1;
                 loss++
             } else {
-                if ( (playerMove === "paper" && computerMove === "scissors") || (playerMove === "paper" && computerMove === "lizzard") ) {
+                if ( (playerMove === "paper" && computerMove === "scissors") || (playerMove === "paper" && computerMove === "lizard") ) {
                     moveResult = -1;
                     loss++;
                 } else {
-                    if ( (playerMove === "lizzard" && computerMove === "scissors") || (playerMove === "lizzard" && computerMove === "rock") ) {
+                    if ( (playerMove === "lizard" && computerMove === "scissors") || (playerMove === "lizard" && computerMove === "rock") ) {
                         moveResult = -1;
                         loss++;
                     } else {
-                        if ( (playerMove === "spock" && computerMove === "paper") || (playerMove === "spock" && computerMove === "lizzard") ) {
+                        if ( (playerMove === "spock" && computerMove === "paper") || (playerMove === "spock" && computerMove === "lizard") ) {
                             moveResult = -1;
                             loss++;
                         } else {
@@ -66,11 +66,11 @@ function checkWinner(player1, player2) {
     return moveResult;
 }
 
-// return random move from computer
+// computer makes random move
 function randomMove() {
-    let moves = ["rock", "paper", "scissors", "lizzard", "spock"]
+    let moves = ["rock", "paper", "scissors", "lizard", "spock"]
     let random = Math.floor(Math.random() * 4);
-    return moves[random];
+    computerMove = moves[random];
 }
 
 // computer always wins
@@ -88,16 +88,17 @@ function alwaysWins() {
             computerMove = "rock";
             break;
 
-        case "lizzard":
+        case "lizard":
             computerMove = "scissors";
             break;
 
         case "spock":
-            computerMove = "lizzard";
+            computerMove = "lizard";
             break;
     }
 }
 
+// computer will always loose their move
 function alwaysLose() {
     switch(playerMove) {
         case "rock":
@@ -109,10 +110,10 @@ function alwaysLose() {
             break;
 
         case "scissors":
-            computerMove = "lizzard";
+            computerMove = "lizard";
             break;
 
-        case "lizzard":
+        case "lizard":
             computerMove = "spock";
             break;
 
@@ -122,18 +123,36 @@ function alwaysLose() {
     }
 }
 
+// computer decides how many times to win or loose
+function clairvoyant() {
+    let winRateLimit = 90;
+    let winRate = Math.round((100 * loss) / gamesPlayed);
+    // start with a random winner
+    if (gamesPlayed === 0) {
+        randomMove();
+    }else{
+        if (winRate > winRateLimit) {
+            alwaysLose();
+        }else {
+            alwaysWins();
+        }
+    }
 
+}
+
+// Game loop
 while(keepPlaying) {
 
     // Moves
-    playerMove = prompt("Type rock, paper, scissors, lizzard, spock");
+    playerMove = prompt("Type rock, paper, scissors, lizard, spock");
     // computerMove = randomMove();
-    alwaysLose();
+    // alwaysLose();
+    clairvoyant();
 
     // check for winner
     let result = checkWinner(playerMove, computerMove);
     gamesPlayed++;
-    
+
     // result box
     alert(`
     ${username} move: ${playerMove}
