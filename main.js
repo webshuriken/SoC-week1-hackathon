@@ -5,6 +5,15 @@ let draws = 0;
 
 let keepPlaying = true;
 
+let username = prompt("Enter your username(max 10 characters)");
+
+if (username === null) {
+    username = "player";
+} else {
+    username = username.substring(0, 10);
+}
+
+
 while(keepPlaying) {
 
     // Moves
@@ -50,7 +59,7 @@ while(keepPlaying) {
     gamesPlayed++;
     
     alert(`
-    Player move: ${playerMove}
+    ${username} move: ${playerMove}
     Computer move: ${computerMove}
     -------------------------------
     Games played: ${gamesPlayed}
