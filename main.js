@@ -1,26 +1,32 @@
-
-
+// Moves
 let playerMove = "scissors";
-let computerMove = "scissors";
+let computerMove = "paper";
 
-if (playerMove === computerMove) {
-    console.log("Draw");
+
+// player2 is the computer
+function checkWinner(player1, player2) {
+    let moveResult;
+    // check the moves
+    if (playerMove === computerMove) {
+        return 0;
+    }else{
+        if (playerMove === "rock" && computerMove === "paper") {
+            moveResult = -1;
+        } else {
+            if (playerMove === "scissors" && computerMove === "rock") {
+                moveResult = -1;
+            } else {
+                if (playerMove === "paper" && computerMove === "scissors") {
+                    moveResult = -1;
+                } else {
+                    moveResult = 1;
+                }
+            }
+        }
+    }
+    return moveResult;
 }
 
-if (playerMove === "rock" && computerMove === "paper") {
-    console.log("You lose");
-} else {
-    console.log("You win")
-}
+let result = checkWinner(playerMove, computerMove);
 
-if (playerMove === "scissors" && computerMove === "rock") {
-    console.log("You lose");
-} else {
-    console.log("You win")
-}
-
-if (playerMove === "paper" && computerMove === "scissors") {
-    console.log("You lose");
-} else {
-    console.log("You win")
-}
+console.log(result);
