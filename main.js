@@ -1,8 +1,13 @@
 // Moves
 let playerMove = prompt("Type rock, paper, scissors");
-let computerMove = "paper";
+let computerMove = randomMove();
 
-
+function randomMove() {
+    let moves = ["rock", "paper", "scissors"]
+    let random = Math.floor(Math.random() * 2);
+    console.log(random);
+    return moves[random]
+}
 
 // player2 is the computer
 function checkWinner(player1, player2) {
