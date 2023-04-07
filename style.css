@@ -1,0 +1,37 @@
+:root {
+  --theme-timberwolf: #DAD2D8;
+  --theme-gunmetal: #143642;
+  --theme-dark-cyan: #0F8B8D;
+  --theme-gamboge: #EC9A29;
+  --theme-cornell-red: #A8201A;
+  font-size: 18px;
+}
+
+.app-container {
+  height: 100vh;
+  background-color: var(--theme-timberwolf);
+}
+
+.app-header {
+  height: 60px;
+  border-bottom: 2px solid var(--theme-dark-cyan);
+}
+.app-header h2 {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: var(--theme-dark-cyan);
+  text-shadow: 1px 1px 1px var(--theme-gunmetal);
+}
+
+.app-body {
+  height: calc(100vh - 100px);
+}
+
+.app-footer {
+  height: 40px;
+  border-top: 2px solid var(--theme-dark-cyan);
+}
+.app-footer p {
+  margin-bottom: 0;
+  color: var(--theme-gunmetal);
+}
