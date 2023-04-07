@@ -7,9 +7,12 @@
   font-size: 18px;
 }
 
+body {
+  background-color: var(--theme-timberwolf);
+}
+
 .app-container {
   height: 100vh;
-  background-color: var(--theme-timberwolf);
 }
 
 .app-header {
