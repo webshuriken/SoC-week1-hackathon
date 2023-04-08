@@ -78,3 +78,27 @@ body {
   margin-bottom: 0;
   color: var(--theme-gunmetal);
 }
+
+/* START SCREEN MODAL */
+.modal.start-screen-modal {
+  background-color: var(--theme-timberwolf);
+}
+
+.start-screen-modal .modal-content {
+  border: none;
+  background: none;
+}
+
+.modal-content .start-screen__btn {
+  height: 68px;
+  width: 172px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: var(--theme-dark-cyan);
+  color: #fff;
+  box-shadow: 0 0 12px var(--theme-gunmetal);
+  transition: transform .32s;
+}
+.modal-content .start-screen__btn:hover {
+  transform: scale(.9);
+}
