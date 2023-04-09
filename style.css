@@ -83,7 +83,8 @@ body {
 /* clear MODALS defaults */
 .start-screen-modal .modal-content,
 .moves-screen-modal .modal-content,
-.result-screen-modal .modal-content {
+.result-screen-modal .modal-content
+.username-screen-modal .modal-content {
   border: none;
   background: none;
 } 
@@ -105,6 +106,16 @@ body {
 }
 .modal-content .start-screen__btn:hover {
   transform: scale(.9);
+}
+
+/* USERNAME SCREEN MODAL */
+.modal.username-screen-modal {
+  background-color: var(--theme-timberwolf);
+}
+
+.modal-body .username-screen__btn {
+  background-color: var(--theme-dark-cyan);
+  color: #fff;
 }
 
 /* MOVES SCREEN MODAL */
