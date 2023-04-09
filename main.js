@@ -6,6 +6,7 @@ const usernameModal = new bootstrap.Modal(usernameModalElem);
 const movesModal = new bootstrap.Modal(document.querySelector('#MovesScreenModal'));
 const resultModal = new bootstrap.Modal(document.querySelector('#ResultScreenModal'));
 
+const movesList = ["rock", "paper", "scissors", "lizard", "spock"]
 let username = 'Anonymous';
 let keepPlaying = true;
 let playerMove;
@@ -41,48 +42,47 @@ function getUserName() {
 // TODO: IF USER TYPES ANYTHING OTHER THAN WHATS ON THS LIST OF MOVES THE PLAYER WINS
 // player2 is the computer
 function checkWinner(player1, player2) {
-    let moveResult;
-    // check the moves
-    if (playerMove === computerMove) {
-        draws++;
-        return 0;
-    }else{
-        if ( (playerMove === "rock" && computerMove === "paper") || (playerMove === "rock" && computerMove === "spock") ) {
-            moveResult = -1;
-            loss++; 
-        } else {
-            if ( (playerMove === "scissors" && computerMove === "rock") || (playerMove === "scissors" && computerMove === "spock") ) {
-                moveResult = -1;
-                loss++
-            } else {
-                if ( (playerMove === "paper" && computerMove === "scissors") || (playerMove === "paper" && computerMove === "lizard") ) {
-                    moveResult = -1;
-                    loss++;
-                } else {
-                    if ( (playerMove === "lizard" && computerMove === "scissors") || (playerMove === "lizard" && computerMove === "rock") ) {
-                        moveResult = -1;
-                        loss++;
-                    } else {
-                        if ( (playerMove === "spock" && computerMove === "paper") || (playerMove === "spock" && computerMove === "lizard") ) {
-                            moveResult = -1;
-                            loss++;
-                        } else {
-                            moveResult = 1;
-                            wins++;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return moveResult;
+	let moveResult;
+	// catch any move not allowed and dismiss
+	if (movesList.includes(player1)) {
+		switch (true) {
+			case (player1 === player2):
+				draws++;
+				moveResult = 0;
+				break;
+			case (player1 === "rock" && (player2 === "paper" || player2 === "spock") ):
+				loss++;
+				moveResult = -1;
+				break;
+			case (player1 === "scissors" && (player2 === "rock" ||player2 === "spock") ):
+				loss++;
+				moveResult = -1;
+				break;
+			case (player1 === "paper" && (player2 === "scissors" || player2 === "lizard") ):
+				loss++;
+				moveResult = -1;
+				break;
+			case (player1 === "lizard" && (player2 === "scissors" || player2 === "rock") ):
+				loss++;
+				moveResult = -1;
+				break;
+			case (player1 === "spock" && (player2 === "paper" || player2 === "lizard") ):
+				loss++;
+				moveResult = -1;
+				break;
+			default:
+				wins++;
+				moveResult = 1;
+		}
+	}
+	
+	return moveResult;
 }
 
 // computer makes random move
 function randomMove() {
-    let moves = ["rock", "paper", "scissors", "lizard", "spock"]
     let random = Math.floor(Math.random() * 4);
-    computerMove = moves[random];
+    computerMove = movesList[random];
 }
 
 // computer always wins
@@ -152,34 +152,23 @@ function clairvoyant() {
 
 }
 
-function gameRound() {
-
-    // Game loop
-    // while(keepPlaying) {
-            
-        // Moves
-        // playerMove = prompt("Type rock, paper, scissors, lizard, spock");
-        // computerMove = randomMove();
-        // alwaysLose();
-        clairvoyant();
-        
-        // check for winner
-        let result = checkWinner(playerMove, computerMove);
-        gamesPlayed++;
-        
-        // result box
-        console.log(`
-        ${username} move: ${playerMove}
-        Computer move: ${computerMove}
-        -------------------------------
-        Games played: ${gamesPlayed}
-        Wins: ${wins}
-        Losses: ${loss}
-        Draws: ${draws}`);
-        
-        // keepPlaying = confirm("Do you want to keep playing?");
-    // }
-
+function gameRound(playerMove) {
+	// robot makes smarter moves. keep in mind is basic.
+	randomMove();
+	
+	// check for winner
+	let result = checkWinner(playerMove, computerMove);
+	gamesPlayed++;
+	
+	// result box
+	console.log(`
+	${username} move: ${playerMove}
+	Computer move: ${computerMove}
+	-------------------------------
+	Games played: ${gamesPlayed}
+	Wins: ${wins}
+	Losses: ${loss}
+	Draws: ${draws}`);
 }
 
 // MOVES SCREEN
@@ -206,8 +195,7 @@ function gameInit(event) {
 	// the buttons should only be active when game is active
 	const gameScreenbtn = document.querySelector('.game-screen');
 	gameScreenbtn.addEventListener('click', elem => {
-		playerMove = elem.target.innerText.toLowerCase();
-		gameRound()
+		gameRound(elem.target.innerText.toLowerCase());
 	});
 }
 
