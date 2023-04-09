@@ -79,14 +79,17 @@ body {
   color: var(--theme-gunmetal);
 }
 
+
+/* clear MODALS defaults */
+.start-screen-modal .modal-content,
+.moves-screen-modal .modal-content {
+  border: none;
+  background: none;
+} 
+
 /* START SCREEN MODAL */
 .modal.start-screen-modal {
   background-color: var(--theme-timberwolf);
-}
-
-.start-screen-modal .modal-content {
-  border: none;
-  background: none;
 }
 
 .modal-content .start-screen__btn {
@@ -101,4 +104,44 @@ body {
 }
 .modal-content .start-screen__btn:hover {
   transform: scale(.9);
+}
+
+/* MOVES SCREEN MODAL */
+.modal.moves-screen-modal {
+  background-color: var(--theme-timberwolf);
+}
+
+.moves-screen__body {
+  overflow: hidden;
+}
+
+.moves-screen__body:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 8px;
+  width: 100%;
+  transform: rotate(0deg);
+  background-color: var(--theme-gamboge);
+  transition: transform .32s;
+}
+
+.modal-content .moves-screen__img {
+  max-width: 256px;
+  transition: transform .32s;
+}
+.winner.moves-screen__img-player {
+  transform: translateY(75px);
+}
+.winner.moves-screen__img-robot {
+  transform: translateY(-75px);
+}
+
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 600px) {
+  .moves-screen__body:before {
+    transform: rotate(-45deg);
+  }
 }
