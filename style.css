@@ -82,7 +82,8 @@ body {
 
 /* clear MODALS defaults */
 .start-screen-modal .modal-content,
-.moves-screen-modal .modal-content {
+.moves-screen-modal .modal-content,
+.result-screen-modal .modal-content {
   border: none;
   background: none;
 } 
@@ -138,6 +139,48 @@ body {
   transform: translateY(-75px);
 }
 
+/* RESULT SCREEN MODAL */
+.modal.result-screen-modal.winner {
+  background-color: var(--theme-dark-cyan);
+}
+.modal.result-screen-modal.looser {
+  background-color: var(--theme-cornell-red);
+}
+
+/* result modal header */
+.modal-content .result-screen__header p {
+  color: #fff;
+  font-size: 2.4rem;
+  opacity: 0;
+  width: 0;
+  transition: opacity 032s;
+}
+.modal-content .result-screen__header p span {
+  font-weight: bold;
+}
+
+/* displays either winner or looser msg */
+.result-screen-modal.winner .modal-content .result-screen__header p:nth-child(1),
+.result-screen-modal.looser .modal-content .result-screen__header p:nth-child(2) {
+  opacity: 1;
+  width: 100%;
+}
+
+/* result modal body */
+.result-screen__body {
+  color: #fff;
+}
+.result-screen__body button {
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: var(--theme-gamboge);
+  color: var(--theme-gunmetal);
+  box-shadow: 1px 1px 10px var(--theme-gunmetal);
+  transition: transform .32s;
+}
+.result-screen__body button:active {
+  transform: scale(.9);
+}
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 600px) {
