@@ -1,0 +1,190 @@
+:root {
+  --theme-timberwolf: #DAD2D8;
+  --theme-gunmetal: #143642;
+  --theme-dark-cyan: #0F8B8D;
+  --theme-gamboge: #EC9A29;
+  --theme-cornell-red: #A8201A;
+  font-size: 18px;
+}
+
+body {
+  background-color: var(--theme-timberwolf);
+}
+
+.app-container {
+  height: 100vh;
+}
+
+.app-header {
+  height: 60px;
+  border-bottom: 2px solid var(--theme-dark-cyan);
+}
+.app-header h2 {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: var(--theme-dark-cyan);
+  text-shadow: 1px 1px 1px var(--theme-gunmetal);
+}
+
+.app-body {
+  height: calc(100vh - 100px);
+}
+
+/* GAME BOARD */
+.game-screen,
+.app-game-btns__top div,
+.app-game-btns__middle div,
+.app-game-btns__bottom div {
+  height: 100%;
+}
+
+.app-game-btns__top {
+  height: 30%;
+}
+.app-game-btns__middle {
+  height: 40%;
+}
+.app-game-btns__bottom {
+  height: 30%;
+}
+.game-screen .app-game-btn {
+  border-radius: 32px;
+  height: 80%;
+  max-height: 300px;
+  width: 80%;
+  max-width: 300px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: var(--theme-gamboge);
+  box-shadow: 1px 1px 3px var(--theme-gunmetal);
+  transition: filter .32s, transform .32s;
+}
+.game-screen .app-game-btn:hover {
+  filter: sepia(40%);
+}
+.game-screen .app-game-btn:active {
+  transform: scale(.9);
+}
+
+.app-game-btns__middle button {
+  height: 40%;
+}
+
+.app-footer {
+  height: 40px;
+  border-top: 2px solid var(--theme-dark-cyan);
+}
+.app-footer p {
+  margin-bottom: 0;
+  color: var(--theme-gunmetal);
+}
+
+
+/* clear MODALS defaults */
+.start-screen-modal .modal-content,
+.moves-screen-modal .modal-content,
+.result-screen-modal .modal-content {
+  border: none;
+  background: none;
+} 
+
+/* START SCREEN MODAL */
+.modal.start-screen-modal {
+  background-color: var(--theme-timberwolf);
+}
+
+.modal-content .start-screen__btn {
+  height: 68px;
+  width: 172px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: var(--theme-dark-cyan);
+  color: #fff;
+  box-shadow: 0 0 12px var(--theme-gunmetal);
+  transition: transform .32s;
+}
+.modal-content .start-screen__btn:hover {
+  transform: scale(.9);
+}
+
+/* MOVES SCREEN MODAL */
+.modal.moves-screen-modal {
+  background-color: var(--theme-timberwolf);
+}
+
+.moves-screen__body {
+  overflow: hidden;
+}
+
+.moves-screen__body:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 8px;
+  width: 100%;
+  transform: rotate(0deg);
+  background-color: var(--theme-gamboge);
+  transition: transform .32s;
+}
+
+.modal-content .moves-screen__img {
+  max-width: 256px;
+  transition: transform .32s;
+}
+.winner.moves-screen__img-player {
+  transform: translateY(75px);
+}
+.winner.moves-screen__img-robot {
+  transform: translateY(-75px);
+}
+
+/* RESULT SCREEN MODAL */
+.modal.result-screen-modal.winner {
+  background-color: var(--theme-dark-cyan);
+}
+.modal.result-screen-modal.looser {
+  background-color: var(--theme-cornell-red);
+}
+
+/* result modal header */
+.modal-content .result-screen__header p {
+  color: #fff;
+  font-size: 2.4rem;
+  opacity: 0;
+  width: 0;
+  transition: opacity 032s;
+}
+.modal-content .result-screen__header p span {
+  font-weight: bold;
+}
+
+/* displays either winner or looser msg */
+.result-screen-modal.winner .modal-content .result-screen__header p:nth-child(1),
+.result-screen-modal.looser .modal-content .result-screen__header p:nth-child(2) {
+  opacity: 1;
+  width: 100%;
+}
+
+/* result modal body */
+.result-screen__body {
+  color: #fff;
+}
+.result-screen__body button {
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: var(--theme-gamboge);
+  color: var(--theme-gunmetal);
+  box-shadow: 1px 1px 10px var(--theme-gunmetal);
+  transition: transform .32s;
+}
+.result-screen__body button:active {
+  transform: scale(.9);
+}
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 600px) {
+  .moves-screen__body:before {
+    transform: rotate(-45deg);
+  }
+}
