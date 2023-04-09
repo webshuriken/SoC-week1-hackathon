@@ -132,7 +132,7 @@ function alwaysLose() {
 // computer decides how many times to win or loose
 function clairvoyant() {
 	let computerMove;
-	let winRateLimit = 70;
+	let winRateLimit = 90;
 	let winRate = Math.round((100 * loss) / gamesPlayed);
 	// start with a random winner
 	if (gamesPlayed === 0) {
@@ -172,21 +172,17 @@ function gameRound(playerMove) {
 
 
 
-// const startScreenModal = new bootstrap.Modal(document.querySelector('#StartScreenModal'));
-// startScreenModal.show();
+function isUsernameValid(username) {
+	// start with valid characters
+	if (username.match(/^[a-zA-Z]/)) {
+		return true;
+	}
+}
 
 
-
-
-
-
-function gameInit(event) {
-	// because im using a form
-	event.preventDefault();
+function gameInit(username) {
 	// remove modal to reveal game buttons
 	usernameModal.hide();
-	// store the username in global scope
-	username = document.querySelector('#Username').value;
 	// the buttons should only be active when game is active
 	const gameScreenbtn = document.querySelector('.game-screen');
 	gameScreenbtn.addEventListener('click', elem => {
@@ -207,6 +203,22 @@ startModalElem.addEventListener('hidden.bs.modal', e => {
 
 // username form
 const usernameForm = document.querySelector('.username-form');
-usernameForm.addEventListener('submit', gameInit);
+usernameForm.addEventListener('submit', event => {
+	event.preventDefault();
+	const usernameElem = document.querySelector('#Username');
+	username = usernameElem.value;
+	// name must be valid before doing anything else
+	if (isUsernameValid(username)) {
+		if (username === null) {
+			username = "player";
+		} else {
+			username = username.charAt(0).toUpperCase() + username.slice(1).substring(0, 9);
+		}
+		// let the games begin
+		gameInit(username);
+	}else{
+		usernameElem.value = 'Username cant start with numbers/symbols';
+	}
+});
 
 startModal.show();
