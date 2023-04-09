@@ -66,11 +66,12 @@
 							<h3 class="modal-title">Enter your username. (max 10 characters)</h3>
 						</div>
 						<div class="modal-body">
-							<div class="form-floating">
-								<input type="text" class="form-control" name="username" id="Username" placeholder="enter username" maxlength="10">
+							<form class="form-floating username-form">
+								<input type="text" class="form-control" name="username" id="Username" placeholder="enter username" maxlength="10" required>
 								<label for="Username">enter username</label>
-							</div>
-							<button class="btn mt-4 username-screen__btn">Continue</button>
+								<button class="btn mt-4 username-screen__btn username-screen__btn--continue" type="submit">Continue</button>
+								<button class="btn mt-4 username-screen__btn--exit" data-bs-target="#StartScreenModal" data-bs-toggle="modal" data-bs-dismiss="modal">Exit</button>
+							</form>
 					</div>
 				</div>
 			</div>
@@ -116,6 +117,7 @@
 	</div>
 	<!-- Bootstrap bundle to include Popper.js -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	<script src="main.js"></script>
+	<script type="module" src="main.js"></script>
+	<script type="module" src="./modules/game-logic.js"></script>
 </body>
 </html>
