@@ -9,13 +9,11 @@ const resultModal = new bootstrap.Modal(document.querySelector('#ResultScreenMod
 const movesList = ["rock", "paper", "scissors", "lizard", "spock"]
 let username = 'Anonymous';
 let keepPlaying = true;
-let playerMove;
 
 let gamesPlayed = 0;
 let wins = 0;
 let loss = 0;
 let draws = 0;
-let computerMove;
 
 
 let checkUsername = true;
@@ -44,7 +42,7 @@ function getUserName() {
 function checkWinner(player1, player2) {
 	let moveResult;
 	// catch any move not allowed and dismiss
-	if (movesList.includes(player1)) {
+	if (movesList.includes(player1) && movesList.includes(player2)) {
 		switch (true) {
 			case (player1 === player2):
 				draws++;
@@ -81,80 +79,77 @@ function checkWinner(player1, player2) {
 
 // computer makes random move
 function randomMove() {
-    let random = Math.floor(Math.random() * 4);
-    computerMove = movesList[random];
+	let random = Math.floor(Math.random() * 4);
+	return movesList[random];
 }
 
 // computer always wins
 function alwaysWins() {
-    switch(playerMove) {
-        case "rock":
-            computerMove = "paper";
-            break;
-
-        case "paper":
-            computerMove = "scissors";
-            break;
-
-        case "scissors":
-            computerMove = "rock";
-            break;
-
-        case "lizard":
-            computerMove = "scissors";
-            break;
-
-        case "spock":
-            computerMove = "lizard";
-            break;
-    }
+	let computerMove = '';
+	switch(playerMove) {
+		case "rock":
+			computerMove = "paper";
+			break;
+		case "paper":
+			computerMove = "scissors";
+			break;
+		case "scissors":
+			computerMove = "rock";
+			break;
+		case "lizard":
+			computerMove = "scissors";
+			break;
+		case "spock":
+			computerMove = "lizard";
+			break;
+	}
+	return computerMove;
 }
 
 // computer will always loose their move
 function alwaysLose() {
-    switch(playerMove) {
-        case "rock":
-            computerMove = "scissors";
-            break;
-
-        case "paper":
-            computerMove = "spock";
-            break;
-
-        case "scissors":
-            computerMove = "lizard";
-            break;
-
-        case "lizard":
-            computerMove = "spock";
-            break;
-
-        case "spock":
-            computerMove = "rock";
-            break;
-    }
+	let computerMove = '';
+	switch(playerMove) {
+		case "rock":
+			computerMove = "scissors";
+			break;
+		case "paper":
+			computerMove = "spock";
+			break;
+		case "scissors":
+			computerMove = "lizard";
+			break;
+		case "lizard":
+			computerMove = "spock";
+			break;
+		case "spock":
+			computerMove = "rock";
+			break;
+	}
+	return computerMove;
 }
 
 // computer decides how many times to win or loose
 function clairvoyant() {
-    let winRateLimit = 90;
-    let winRate = Math.round((100 * loss) / gamesPlayed);
-    // start with a random winner
-    if (gamesPlayed === 0) {
-        randomMove();
-    }else{
-        if (winRate > winRateLimit) {
-            alwaysLose();
-        }else {
-            alwaysWins();
-        }
-    }
+	let computerMove;
+	let winRateLimit = 70;
+	let winRate = Math.round((100 * loss) / gamesPlayed);
+	// start with a random winner
+	if (gamesPlayed === 0) {
+			computerMove = randomMove();
+	}else{
+		if (winRate > winRateLimit) {
+			computerMove = alwaysLose();
+		}else {
+			computerMove = alwaysWins();
+		}
+	}
 
 }
 
 function gameRound(playerMove) {
 	// robot makes smarter moves. keep in mind is basic.
-	randomMove();
+	let computerMove = randomMove();
 	
 	// check for winner
 	let result = checkWinner(playerMove, computerMove);
