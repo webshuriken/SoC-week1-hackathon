@@ -1,7 +1,9 @@
 
-# Rock, Paper, Scissors!
+# Rock, Paper, Scissors! :joystick:
 
-Game of rock, paper, scissors built for the first week at School of Code. 
+Game of rock, paper, scissors built for the first week at School of Code.
+
+Visit [live site](https://webshuriken.github.io/SoC-week1-hackathon) :airplane:
 
 
 ## Features
@@ -154,7 +156,9 @@ If you have time, see if you can start writing this.
 ## Acknowledgements
 
  - [Coolers](https://awesomeopensource.com/project/elangosundar/awesome-README-templates) for generating a random colour pallet
- **Icons**
+ 
+ **Icons** used to represent the different hand gestures.
+ 
  - [Rock](https://icon-icons.com/icon/hand-rock/194408)
  - [Paper](https://icon-icons.com/icon/hand-paper/194460)
  - [Scissors](https://icon-icons.com/icon/hand-scissors/194407)
