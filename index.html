@@ -12,7 +12,7 @@
 <body>
 	<div class="container-lg app-container">
 		<header class="row align-items-center app-header">
-			<h2 class="col-12">Rock, Paper, Scissors</h2>
+			<h5 class="col-12">Rock, Paper, Scissors</h5>
 		</header>
 		<main class="row app-body">
 			<!-- GAME SCREEN -->
@@ -45,61 +45,108 @@
 					</div>
 				</section>
 			</div>
-			<!-- START SCREEN MODAL -->
-			<div class="modal fade start-screen-modal" id="StartScreenModal" tabindex="-1" aria-labelledby="Play the game button" aria-hidden="true" data-bs-backdrop="static">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-header justify-content-center">
-							<h5 class="modal-title">Rock, Paper, Scissors.</h5>
-						</div>
-						<div class="modal-body">
-							<button class="btn d-block mx-auto text-center start-screen__btn" data-bs-dismiss="modal">PLAY</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- MOVES SCREEN MODAL -->
-			<div class="modal fade moves-screen-modal" id="MovesScreenModal" tabindex="-1" aria-labelledby="Show players moves" aria-hidden="true" data-bs-backdrop="static">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-body moves-screen__body">
-							<div class="row gy-5 justify-content-start">
-								<div class="col-12">
-									<img src="" alt="" class="img-fluid rounded float-start moves-screen__img moves-screen__img-player">
-								</div>
-								<div class="col-12">
-									<img src="" alt="" class="img-fluid rounded float-end moves-screen__img moves-screen__img-robot">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- RESULT SCREEN MODAL -->
-			<div class="modal fade result-screen-modal winner" id="ResultScreenModal" tabindex="-1" aria-labelledby="Show the game results" aria-hidden="true" data-bs-backdrop="static">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-header result-screen__header text-center">
-							<p>You <span>WON!</span></p>
-							<p>you Lost</p>
-						</div>
-						<div class="modal-body result-screen__body">
-							<div class="row justify-content-evenly">
-								<p class="col-12 h1 pb-4 text-center">Do you want to play again?</p>
-								<button class="col-4 btn">YES</button>
-								<button class="col-4 btn">no</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</main>
 		<footer class="row align-items-center text-center app-footer">
 			<p class="col-12">All rights reserved 2022-2023</p>
 		</footer>
 	</div>
+	<!-- START SCREEN MODAL -->
+	<div class="modal fade start-screen-modal" id="StartScreenModal" tabindex="-1" aria-labelledby="Play the game button" aria-hidden="true" data-bs-backdrop="static">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header justify-content-center">
+					<h5 class="modal-title text-center">Rock, Paper, Scissors, Lizar, Spock.</h5>
+				</div>
+				<div class="modal-body">
+					<button class="btn d-block mx-auto text-center start-screen__btn" data-bs-dismiss="modal">PLAY</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- USERNAME SCREEN MODAL -->
+	<div class="modal fade username-screen-modal" id="UsernameScreenModal" tabindex="-1" aria-labelledby="Asks for the players name" aria-hidden="true" data-bs-backdrop="static">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Enter your username. (max 10 characters)</h3>
+				</div>
+				<div class="modal-body">
+					<form class="form-floating username-form">
+						<input type="text" class="form-control" name="username" id="Username" placeholder="enter username" maxlength="10">
+						<label for="Username">enter username</label>
+						<button class="btn mt-4 username-screen__btn username-screen__btn--continue" type="submit">Continue</button>
+						<button class="btn mt-4 username-screen__btn--exit" data-bs-target="#StartScreenModal" data-bs-toggle="modal" data-bs-dismiss="modal">Exit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- MOVES SCREEN MODAL -->
+	<div class="modal fade moves-screen-modal" id="MovesScreenModal" tabindex="-1" aria-labelledby="Show players moves" aria-hidden="true" data-bs-backdrop="static">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-body moves-screen__body">
+					<div class="row gy-5 justify-content-start">
+						<div class="col-12">
+							<img src="" alt="" class="img-fluid rounded float-start moves-screen__img moves-screen__img-player">
+						</div>
+						<div class="col-12">
+							<img src="" alt="" class="img-fluid rounded float-end moves-screen__img moves-screen__img-robot">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- RESULT SCREEN MODAL -->
+	<div class="modal fade result-screen-modal" id="ResultScreenModal" tabindex="-1" aria-labelledby="Show the game results" aria-hidden="true" data-bs-backdrop="static">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header result-screen__header text-center">
+					<p>You <span>WON!</span></p>
+					<p>you Lost</p>
+					<p>Its a Draw</p>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<h4 class="col-12">
+							<span class="result-screen__username"></span>, here are your stats:
+						</h4>
+						<table class="table table-dark table-striped">
+							<tbody>
+								<tr>
+									<th scope="row">Games Played</th>
+									<td><span class="result-screen__games-played"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Wins</th>
+									<td><span class="result-screen__wins"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Losses</th>
+									<td><span class="result-screen__losses"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Draws</th>
+									<td><span class="result-screen__draws"></span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="modal-footer result-screen__footer">
+					<div class="row justify-content-evenly">
+						<p class="col-12 h1 pb-4 text-center">Do you want to play again?</p>
+						<button class="col-4 btn result-screen__btns">YES</button>
+						<button class="col-4 btn result-screen__btns">no</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Bootstrap bundle to include Popper.js -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-	<script src="main.js"></script>
+	<script type="module" src="main.js"></script>
+	<script type="module" src="./modules/game-logic.js"></script>
 </body>
 </html>

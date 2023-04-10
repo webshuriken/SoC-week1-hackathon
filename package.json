@@ -1,0 +1,16 @@
+{
+  "name": "soc-week1-hackathon",
+  "version": "1.0.0",
+  "description": "Game of rock, paper, scissors built for the first week at School of Code.",
+  "main": "main.js",
+  "scripts": {
+    "start": "reload -b",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "reload": "^3.2.1"
+  }
+}
