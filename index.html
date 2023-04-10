@@ -12,7 +12,7 @@
 <body>
 	<div class="container-lg app-container">
 		<header class="row align-items-center app-header">
-			<h2 class="col-12">Rock, Paper, Scissors</h2>
+			<h5 class="col-12">Rock, Paper, Scissors</h5>
 		</header>
 		<main class="row app-body">
 			<!-- GAME SCREEN -->
@@ -55,7 +55,7 @@
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header justify-content-center">
-					<h5 class="modal-title">Rock, Paper, Scissors.</h5>
+					<h5 class="modal-title text-center">Rock, Paper, Scissors, Lizar, Spock.</h5>
 				</div>
 				<div class="modal-body">
 					<button class="btn d-block mx-auto text-center start-screen__btn" data-bs-dismiss="modal">PLAY</button>
@@ -99,18 +99,46 @@
 		</div>
 	</div>
 	<!-- RESULT SCREEN MODAL -->
-	<div class="modal fade result-screen-modal winner" id="ResultScreenModal" tabindex="-1" aria-labelledby="Show the game results" aria-hidden="true" data-bs-backdrop="static">
+	<div class="modal fade result-screen-modal" id="ResultScreenModal" tabindex="-1" aria-labelledby="Show the game results" aria-hidden="true" data-bs-backdrop="static">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header result-screen__header text-center">
 					<p>You <span>WON!</span></p>
 					<p>you Lost</p>
+					<p>Its a Draw</p>
 				</div>
-				<div class="modal-body result-screen__body">
+				<div class="modal-body">
+					<div class="row">
+						<h4 class="col-12">
+							<span class="result-screen__username"></span>, here are your stats:
+						</h4>
+						<table class="table table-dark table-striped">
+							<tbody>
+								<tr>
+									<th scope="row">Games Played</th>
+									<td><span class="result-screen__games-played"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Wins</th>
+									<td><span class="result-screen__wins"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Losses</th>
+									<td><span class="result-screen__losses"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Draws</th>
+									<td><span class="result-screen__draws"></span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="modal-footer result-screen__footer">
 					<div class="row justify-content-evenly">
 						<p class="col-12 h1 pb-4 text-center">Do you want to play again?</p>
-						<button class="col-4 btn">YES</button>
-						<button class="col-4 btn">no</button>
+						<button class="col-4 btn result-screen__btns">YES</button>
+						<button class="col-4 btn result-screen__btns">no</button>
 					</div>
 				</div>
 			</div>

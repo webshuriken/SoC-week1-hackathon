@@ -83,7 +83,7 @@ body {
 /* clear MODALS defaults */
 .start-screen-modal .modal-content,
 .moves-screen-modal .modal-content,
-.result-screen-modal .modal-content
+.result-screen-modal .modal-content,
 .username-screen-modal .modal-content {
   border: none;
   background: none;
@@ -114,7 +114,12 @@ body {
 }
 
 .modal-body .username-screen__btn {
+  font-weight: bold;
   background-color: var(--theme-dark-cyan);
+  color: #fff;
+}
+.modal-body .username-screen__btn--exit {
+  background-color: var(--theme-cornell-red);
   color: #fff;
 }
 
@@ -151,37 +156,38 @@ body {
 }
 
 /* RESULT SCREEN MODAL */
+.modal.result-screen-modal {
+  color: #fff;
+}
 .modal.result-screen-modal.winner {
   background-color: var(--theme-dark-cyan);
 }
 .modal.result-screen-modal.looser {
   background-color: var(--theme-cornell-red);
 }
+.modal.result-screen-modal.draw {
+  background-color: var(--theme-timberwolf);
+}
 
 /* result modal header */
 .modal-content .result-screen__header p {
-  color: #fff;
+  display: none;
+  width: 100%;
   font-size: 2.4rem;
-  opacity: 0;
-  width: 0;
-  transition: opacity 032s;
 }
 .modal-content .result-screen__header p span {
   font-weight: bold;
 }
 
 /* displays either winner or looser msg */
-.result-screen-modal.winner .modal-content .result-screen__header p:nth-child(1),
-.result-screen-modal.looser .modal-content .result-screen__header p:nth-child(2) {
-  opacity: 1;
-  width: 100%;
+.result-screen-modal.winner .result-screen__header p:nth-child(1),
+.result-screen-modal.looser .result-screen__header p:nth-child(2),
+.result-screen-modal.draw .result-screen__header p:nth-child(3) {
+  display: block;
 }
 
-/* result modal body */
-.result-screen__body {
-  color: #fff;
-}
-.result-screen__body button {
+/* result modal footer */
+.result-screen__footer button {
   font-size: 1.4rem;
   font-weight: bold;
   background-color: var(--theme-gamboge);
@@ -189,13 +195,13 @@ body {
   box-shadow: 1px 1px 10px var(--theme-gunmetal);
   transition: transform .32s;
 }
-.result-screen__body button:active {
+.result-screen__footer button:active {
   transform: scale(.9);
 }
 
 /* MEDIA QUERIES */
 @media screen and (min-width: 600px) {
-  .moves-screen__body:before {
+  .moves-screen__footer:before {
     transform: rotate(-45deg);
   }
 }
