@@ -3,7 +3,8 @@ var startModalElem = document.querySelector('#StartScreenModal');
 const startModal = new bootstrap.Modal(startModalElem);
 var usernameModalElem = document.querySelector('#UsernameScreenModal');
 const usernameModal = new bootstrap.Modal(usernameModalElem);
-const movesModal = new bootstrap.Modal(document.querySelector('#MovesScreenModal'));
+var movesModalElem = document.querySelector('#MovesScreenModal');
+const movesModal = new bootstrap.Modal(movesModalElem);
 const resultModal = new bootstrap.Modal(document.querySelector('#ResultScreenModal'));
 
 const movesList = ["rock", "paper", "scissors", "lizard", "spock"]
@@ -147,9 +148,13 @@ function clairvoyant() {
 
 }
 
-function gameRound(playerMove) {
-	// robot makes smarter moves. keep in mind is basic.
+async function gameRound(playerMove) {
+	// robot makes random move
 	let computerMove = randomMove();
+
+	// show players hands for 1 second
+	await showHands(playerMove, computerMove);
+	movesModal.hide();
 	
 	// check for winner
 	let result = checkWinner(playerMove, computerMove);
@@ -170,7 +175,19 @@ function gameRound(playerMove) {
 // const playerMove = '.moves-screen__img-player'
 // const playerMove = '.moves-screen__img-robot'
 
-
+function showHands(pHand, cHand) {
+	return new Promise(resolve => {
+		const pImgSrc = `assets/hand-${pHand}.png`;
+		const cImgSrc = `assets/hand-${cHand}.png`;
+		document.querySelector('.moves-screen__img-player').setAttribute('src', pImgSrc);
+		document.querySelector('.moves-screen__img-robot').setAttribute('src', cImgSrc);
+		movesModal.show();
+		// delay the next stage of the game by 1 sec
+		setTimeout(() => {
+			resolve();
+		}, 1400);
+	})
+}
 
 function isUsernameValid(username) {
 	// start with valid characters
