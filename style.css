@@ -8,10 +8,11 @@
 }
 
 body {
-  background-color: var(--theme-timberwolf);
+  background: var(--theme-timberwolf)!important;
 }
 
 .app-container {
+  background: var(--theme-timberwolf);
   height: 100vh;
 }
 
