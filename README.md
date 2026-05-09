@@ -5,12 +5,10 @@ Game of rock, paper, scissors built for the first week at School of Code.
 
 Visit [live site](https://webshuriken.github.io/SoC-week1-hackathon) :airplane:
 
-
 ## Features
 
 - Responsive
 - extra 2 moves: lizard, spock.
-
 
 ## Screenshots
 
@@ -20,18 +18,6 @@ Visit [live site](https://webshuriken.github.io/SoC-week1-hackathon) :airplane:
 ![Draw Screenshot](assets/screenshots/screenshot-4.png)
 ![Winner Screenshot](assets/screenshots/screenshot-5.png)
 ![Loser Screenshot](assets/screenshots/screenshot-6.png)
-
-
-## Color Reference
-
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Timberwolf | ![#DAD2D8](https://via.placeholder.com/10/DAD2D8?text=+) #DAD2D8 |
-| Gunmetal | ![#143642](https://via.placeholder.com/10/143642?text=+) #143642 |
-| Dark Cyan | ![#0F8B8D](https://via.placeholder.com/10/0F8B8D?text=+) #0F8B8D |
-| Gamboge | ![#EC9A29](https://via.placeholder.com/10/EC9A29?text=+) #EC9A29 |
-| Cornell Red | ![#A8201A](https://via.placeholder.com/10/A8201A?text=+) #A8201A |
-
 
 ## Tech Stack
 
@@ -76,7 +62,6 @@ let result = getWinner("rock", "paper");
 
 This will be deemed as complete when the function can be called with any combination of valid moves and returns the appropriate number.
 
-
 ### Task 3: User Input :heavy_check_mark:
 
 Using `prompt`, get a user-inputted value for the player move. Then call your function with that value as the player move and the hard-coded computer move. Display the result using `alert`.
@@ -95,7 +80,6 @@ Write a function that generates a random computer move. Use that function to mak
 
 This will be deemed as complete when the player can input any move in the prompt, the computer move is chosen by random, and the correct result shows in the alert.
 
-
 ### Task 5: Game Loop :heavy_check_mark:
 
 Now that we have a fully functioning game, our next step is to have it run as many times as people would like to play without having to refresh the page.
@@ -103,7 +87,6 @@ Now that we have a fully functioning game, our next step is to have it run as ma
 Use a `while loop` and `confirm`.
 
 This will be deemed as complete when a player can keep playing indefinitely and has the option to stop playing after every round.
-
 
 ### Task 6: Scores :heavy_check_mark:
 
@@ -122,7 +105,6 @@ This will be deemed as complete when the users cannot enter a username longer th
 
 🌟 BONUS: Make it so that valid usernames should only start with letters, not numbers or symbols.  
 🌟 EXTRA BONUS: Make it so that the first letter of the username should be capitalised.  
-
 
 ### Bonus task extensions - pick whichever one(s) you fancy
 
@@ -147,11 +129,9 @@ Plan how you'd go about implementing this (use pseudo-code).
 
 If you have time, see if you can start writing this.
 
-
 ## Roadmap
 
 - Graphical Interface.
-
 
 ## Acknowledgements
 
@@ -165,12 +145,10 @@ If you have time, see if you can start writing this.
  - [Lizard](https://icon-icons.com/icon/hand-lizard/198389)
  - [Spoke](https://icon-icons.com/icon/gesture-hand-spock/218207)
 
-
 ## Authors
 
 - [Carlos E Alford](https://carlosealford.com/)
 - [Conor Goddard](https://www.github.com/ConorG1247) worked with me on the inital text version of the game.
-
 
 ## License
 
