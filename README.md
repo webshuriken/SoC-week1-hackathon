@@ -33,6 +33,10 @@ The first hackathon of many during the School of Code bootcamp. Worked along sid
 - extra 2 moves: lizard, spock.
 - Graphical Interface.
 
+## Game rules
+
+![game rules](RPSLS.jpeg)
+
 ## Acknowledgements
 
  - [Coolers](https://awesomeopensource.com/project/elangosundar/awesome-README-templates) for generating a random colour pallet
